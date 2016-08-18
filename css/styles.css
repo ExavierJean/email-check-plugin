@@ -1,0 +1,50 @@
+/*--------------------------------------------
+		GANG GANG SHHHHHHHHH
+--------------------------------------------*/
+
+body {
+	background-color: black;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+form {
+	height: 50%;
+	width: 50%;
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto;
+	border: 1px dotted white;
+}
+
+input {
+	height: 25%;
+	width: 50%;
+	text-align: center;
+	font-size: 2em;
+	margin: 20px 20px 10px;
+	float: left;
+}
+
+button {
+	height: 12.5%;
+	width: 25%;
+	font-size: 1em;
+	text-transform: capitalize;
+	float: left;
+	clear: left;
+	margin: 10px 20px 0;
+}
+
+#result {
+    float: right;
+    border: 1px dotted white;
+    height: 40%;
+    width: 65%;
+    margin: 20px;
+    font-size: 1em;
+}
