@@ -1,3 +1,32 @@
+var domains = [
+  /* Default domains included */
+  "gmail.com", "hotmail.com", "yahoo.com"
+  ]
+
+var email = $("#email").val()
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  return re.test(email);
+}
+
+function valid(){
+    validateEmail();
+    function validate() {
+      $("#result").text("");
+      if (validateEmail(email)) {
+        $("#result").text(email + " is valid.");
+        $("#result").css("color", "green");
+      } else {
+        $("#result").text(email + " is not valid.");
+        $("#result").css("color", "red");
+      }
+      return false;
+    }
+    $("form").bind("submit", validate);
+}
+
 // Sift4 - simplest version
 // online algorithm to compute the distance between two strings in O(n)
 // maxOffset is the number of characters to search for matching letters
@@ -49,3 +78,4 @@ function sift4(s1, s2, maxOffset) {
     lcss+=local_cs;
     return Math.round(Math.max(l1,l2)- lcss);
 }
+

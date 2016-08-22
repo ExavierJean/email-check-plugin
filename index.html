@@ -5,44 +5,15 @@
 		<title> Get Your Email Right ! </title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>
-
-			function goo(){
-			
-				function validateEmail(email) {
-	  				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-				  return re.test(email);
-				}
-
-				function validate() {
-				  $("#result").text("");
-				  var email = $("#email").val();
-				  if (validateEmail(email)) {
-				    $("#result").text(email + " is valid.");
-				    $("#result").css("color", "green");
-				  } else {
-				    $("#result").text(email + " is not valid.");
-				    $("#result").css("color", "red");
-				  }
-				  return false;
-				}
-
-				$("form").bind("submit", validate);
-
-			}
-
-		</script>
-	
 	</head>
 	
 	<body>
 
 		<form>
-	
-		    <input id="email" type="email" placeholder="Email" onkeypress="goo()">
+
+		    <input id="email" type="email" placeholder="Email" onkeypress="valid()" >
   			
-  			<button type='submit' id='validate'> submit </button>
+  			<button id="submit" type='submit' id='validate'> submit </button>
 
   			<h2 id='result'></h2>
 
@@ -50,6 +21,7 @@
 		</form>
 
 		<script type="text/javascript" src="js/sift4.js"></script>
+		<script type="text/javascript" src="js/email-check-plugin.js"></script>
 
 	</body>
 
