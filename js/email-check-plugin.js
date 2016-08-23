@@ -1,6 +1,6 @@
 // ;(function ( $, window, document, undefined ) {
  
-$.fn.	
+// $.fn.	
 
 	var domains = [
 		'gmail.com', 
@@ -59,7 +59,10 @@ $.fn.
 			 	bestMatch = domain;
 			 }
 		}
-	
+
+		juice(bestMatch, preEmail);
+
+		return bestMatch
 	});
 
 		// Sift4 - simplest version
@@ -109,11 +112,35 @@ function sift4(s1, s2, maxOffset) {
         }
         c1++;
         c2++;
-    }
-    lcss+=local_cs;
+            lcss+=local_cs;
     return Math.round(Math.max(l1,l2)- lcss);
 }
 
+function juice (bestMatch, preEmail){
+	
+	$('body > form > div').remove();
+	$('body > form').append( '<div id="didYouMean" style="color: red; font-size: 1em;"><h2> Did You Mean "' + preEmail + '@' + bestMatch + '"?</h2>' + ' <a id="yeSir" onclick="return false" href="#" style="text-decoration: none; color: white;">Yes</a>' + ' or ' + '<a id="noSir" href="#" style="text-decoration: none; color: white;">Naw</a></div>');
+
+	yesSir(bestMatch, preEmail);	
+	return false
+}
+
+function yesSir(preEmail, bestMatch){
+	$('#email').val(preEmail + '@' + bestMatch);
+	$('body > form > div').remove();
+}  
+
+function nosSir(){
+	$('body > form > div').remove();
+}
+
+$('body > form > div > #yeSir').click(function(){
+	yesSir();
+});
+
+$('body > form > div > #noSir').click(function(){
+	nosSir();
+});
 
 
 
